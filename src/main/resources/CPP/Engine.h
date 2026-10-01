@@ -1,6 +1,7 @@
 #include <iostream>
 #include <thread>
 #include <string>
+#include <jni_md.h>
 
 // Tell this file that the helper functions exist over in the controller file
 extern jint getLiveIntField(const char* innerClassName, const char* fieldName);

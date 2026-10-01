@@ -22,6 +22,9 @@ public class Program extends Application {
     }
     @Override
     public void start(Stage stage) {
+        // the dll file in \Ellipse-6814-Custom-Dashboard\build\NativeMain\RuntimeLibs\windows\x86-64\shared is wrong
+        // new CPPController().executePrintHelloWorld();
+
         WebView view = new WebView();
         engine = view.getEngine();
 
