@@ -126,7 +126,7 @@ function updatePhases(isRed) {
 }
 
 // =========================
-// BUTTONS (JS → JAVA)
+// BUTTONS
 // =========================
 function connectRobot() {
   window.java.connectRobot();

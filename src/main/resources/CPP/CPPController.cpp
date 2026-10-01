@@ -1,6 +1,5 @@
 #include <jni.h>
 #include "Controller_Java_CPPController.h"
-// Include the background logic headers from src/CPP/ here
 #include "Engine.h"
 
 // Global pointer needed to track the active Java environment for live updates
