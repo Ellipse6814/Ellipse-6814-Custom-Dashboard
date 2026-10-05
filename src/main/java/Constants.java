@@ -3,7 +3,6 @@ import edu.wpi.first.math.util.Units;
 /* List of almost literally anything that this could need to know/display
 - Team Number
 - Field Dimensions as pixels scaling with resolution
-- Window size (Field Dimensions + 50% of each side so 1.5 x field height up and same down and left and right)
 - Phase timers
 - Total time
 - Status of subsystems and (really small) status of connection to them
@@ -35,9 +34,22 @@ public class Constants {
     public static final int totalGameTime = 160;
     public static final int phaseWidths = 90;
     public static final int phaseHeights = 60;
+    //Lengths of each phase
     public static final int[] mainPhaseTimes = {20, 10, 25, 25, 25, 25, 30};
+    // First is always the same as the first in mainPhaseTimes otherwise how much left at the start of current phase
     public static int[] phaseTimeRemaining = {20, 140, 130, 105, 80, 55, 30};
-    // These are indexes aka phase number - 1
+    // These are indexes aka phase number - 1 when it is repeatable
     public static final int startCopyPhase = 2;
     public static final int endCopyPhase = 5;
+
+    // Statuses (0 means ready 1 means in progress -1 means broken):
+    // public static int outtakeStatus = 0;
+    // public static int shooterStatus = 0;
+
+    // public static int elevatorStatus = 0;
+    // public static int autoalignStatus = 0;
+
+    // public static int groundIntakeStatus= 0;
+    // public static int intakeStatus = 0;
+
 }

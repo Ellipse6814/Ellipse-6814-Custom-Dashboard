@@ -92,7 +92,7 @@ function updateTimers(matchTime, isAuto) {
     phases[CONSTANTS.mainPhaseTimes.length-1].innerText = CONSTANTS.mainPhaseTimes[CONSTANTS.mainPhaseTimes.length-1];
   }
   else {
-    // first phase
+    // first phase (If it screams about this it doesn't matter)
     phases[0].innerText = "0";
 
     for (let i = 1; i < CONSTANTS.mainPhaseTimes.length; i++) {
