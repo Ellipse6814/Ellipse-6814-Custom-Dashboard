@@ -19,7 +19,7 @@ import edu.wpi.first.math.util.Units;
 public class Constants {
     public static int teamNumber = 6814;
     public static int windowWidth = 900;
-    public static int windowHeight = 550;
+    public static int windowHeight = 600;
 
     public static int mapWidth = 800;
     public static double mapPadding = 100;

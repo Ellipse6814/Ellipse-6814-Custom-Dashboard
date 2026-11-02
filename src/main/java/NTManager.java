@@ -14,7 +14,7 @@ import edu.wpi.first.networktables.StructSubscriber;
 import edu.wpi.first.util.CombinedRuntimeLoader;
 import edu.wpi.first.util.WPIUtilJNI;
 
-// Most of (only) this file was coded by Andrew Lang, the rest (of the files) was by Cyrus 
+// Most of (only) this file was coded by Andrew Lang, the rest (of the files) was by Cyrus
 
 // This file will be edited almost every year because WPIlib versions
 
