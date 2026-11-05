@@ -105,10 +105,7 @@ public class Program extends Application {
     public void connectSim() {
         NTManager.connectNT(false);
     }
-    /**
-     * @param onConnectionUpdate
-     * 
-     */
+
     private void onConnectionUpdate(NetworkTableEvent e) {
         boolean connected = e.getInstance().isConnected();
 
@@ -143,6 +140,7 @@ public class Program extends Application {
      * 
      * @param phasetimeremaining
      * @return Returns the array from Java as a String for JavaScript
+     * This is a helper function
      */
 
     private String arrayToJSON(int[] phasetimeremaining) {
@@ -154,14 +152,4 @@ public class Program extends Application {
         sb.append("]");
         return sb.toString();
     }
-    // private String 2DArrayToJSON(int[] phasetimeremaining) {
-    //     StringBuilder sb = new StringBuilder("[");
-    //     for (int i = 0; i < phasetimeremaining.length; i++) {
-    //         for(int j = 0; j < mainP)
-    //         sb.append(phasetimeremaining[i]);
-    //         if (i < phasetimeremaining.length - 1) sb.append(",");
-    //     }
-    //     sb.append("]");
-    //     return sb.toString();
-    // }
 }
