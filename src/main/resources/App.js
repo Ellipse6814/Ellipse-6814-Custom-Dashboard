@@ -4,10 +4,11 @@ let nextPhase;
 const nextPhaseContainer = document.getElementById("nextPhase");
 
 function init() {
-  let nextPhasebox = document.createElement("div");
-  nextPhasebox.className = "nextPhaseBox";
-  nextPhasebox.innerText = CONSTANTS.mainPhaseTimes[6];
-  nextPhaseContainer.appendChild(nextPhasebox);
+  nextPhase = document.createElement("div");
+  nextPhase.className = "phaseBox";
+  nextPhase.innerText = CONSTANTS.mainPhaseTimes[0];
+  nextPhaseContainer.appendChild(nextPhase);
+
   for (let i = 0; i < CONSTANTS.mainPhaseTimes.length; i++) {
     let box = document.createElement("div");
     box.className = "phaseBox";
@@ -83,16 +84,14 @@ function updateTimers(matchTime, isAuto) {
     phases[0].innerText = matchTime;
     phases[1].innerText = CONSTANTS.mainPhaseTimes[1];
 
-    // this is to set the center 4 (the 25 second phases)
     for (let i = 2; i < CONSTANTS.mainPhaseTimes.length-1; i++) {
       phases[i].innerText = CONSTANTS.mainPhaseTimes[i];
     }
 
-    // final phase (set to final save value)
-    phases[CONSTANTS.mainPhaseTimes.length-1].innerText = CONSTANTS.mainPhaseTimes[CONSTANTS.mainPhaseTimes.length-1];
+    phases[CONSTANTS.mainPhaseTimes.length-1].innerText =
+      CONSTANTS.mainPhaseTimes[CONSTANTS.mainPhaseTimes.length-1];
   }
   else {
-    // first phase
     phases[0].innerText = "0";
 
     for (let i = 1; i < CONSTANTS.mainPhaseTimes.length; i++) {
@@ -106,6 +105,16 @@ function updateTimers(matchTime, isAuto) {
         CONSTANTS.mainPhaseTimes[i]
       );
     }
+  }
+
+  let currentPhase = phases.findIndex(
+    phase => Number(phase.innerText) > 0
+  );
+
+  if (currentPhase === -1) {
+    nextPhase.innerText = "0";
+  } else {
+    nextPhase.innerText = phases[currentPhase].innerText;
   }
 }
 // =========================

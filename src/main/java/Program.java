@@ -20,11 +20,13 @@ public class Program extends Application {
         NTManager.init();
         launch(args);
     }
+    @SuppressWarnings("removal")
     @Override
     public void start(Stage stage) {
         // the dll file in \Ellipse-6814-Custom-Dashboard\build\NativeMain\RuntimeLibs\windows\x86-64\shared is wrong
         // new CPPController().executePrintHelloWorld();
 
+        // Sets up link between program, ui, and driver station
         WebView view = new WebView();
         engine = view.getEngine();
 
@@ -42,6 +44,7 @@ public class Program extends Application {
             }
         });
 
+        // Sets up the program window
         stage.setScene(new Scene(view, Constants.windowWidth, Constants.windowHeight));
         stage.setTitle("Template");
         stage.show();
@@ -63,6 +66,7 @@ public class Program extends Application {
         });
     }
 
+    // The UI update loop
     private void startLoop() {
         AnimationTimer timer = new AnimationTimer() {
             private long last = 0;
@@ -101,10 +105,7 @@ public class Program extends Application {
     public void connectSim() {
         NTManager.connectNT(false);
     }
-    /**
-     * @param onConnectionUpdate
-     * 
-     */
+
     private void onConnectionUpdate(NetworkTableEvent e) {
         boolean connected = e.getInstance().isConnected();
 
@@ -139,6 +140,7 @@ public class Program extends Application {
      * 
      * @param phasetimeremaining
      * @return Returns the array from Java as a String for JavaScript
+     * This is a helper function
      */
 
     private String arrayToJSON(int[] phasetimeremaining) {
@@ -150,14 +152,4 @@ public class Program extends Application {
         sb.append("]");
         return sb.toString();
     }
-    // private String 2DArrayToJSON(int[] phasetimeremaining) {
-    //     StringBuilder sb = new StringBuilder("[");
-    //     for (int i = 0; i < phasetimeremaining.length; i++) {
-    //         for(int j = 0; j < mainP)
-    //         sb.append(phasetimeremaining[i]);
-    //         if (i < phasetimeremaining.length - 1) sb.append(",");
-    //     }
-    //     sb.append("]");
-    //     return sb.toString();
-    // }
 }

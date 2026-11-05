@@ -14,7 +14,7 @@ import edu.wpi.first.networktables.StructSubscriber;
 import edu.wpi.first.util.CombinedRuntimeLoader;
 import edu.wpi.first.util.WPIUtilJNI;
 
-// Most of (only) this file was coded by Andrew Lang, the rest (of the files) was by Cyrus 
+// Most of (only) this file was coded by Andrew Lang, the rest (of the files) was by Cyrus
 
 // This file will be edited almost every year because WPIlib versions
 
@@ -44,6 +44,7 @@ public class NTManager {
 
     public static void connectNT(boolean connectToRobot)
     {
+        // Ensures actions are executed in the proper order
         if(nt != null && nt.isConnected())
         {
             nt.stopClient();
@@ -53,6 +54,7 @@ public class NTManager {
         }
         nt.startClient4("Ellashboard");
         
+        // Updates UI connection status
         if(connectToRobot)
         {
             connectToRealRobot = true;
@@ -66,6 +68,7 @@ public class NTManager {
             System.out.println("Connecting to simulation on localhost");
         }
         
+        // Gets data
         table = nt.getTable("Ellashboard");
         
         NetworkTable fmsinfo = nt.getTable("FMSInfo");
@@ -92,6 +95,7 @@ public class NTManager {
 
     public static void addConnectionListener(Consumer<NetworkTableEvent> listener)
     {
+        // Connection thing
         nt.addConnectionListener(true, event -> { listener.accept(event); });
     }
 
@@ -112,6 +116,7 @@ public class NTManager {
 
     public static Alliance getCurrentAlliance()
     {
+        // Gets the current alliance
         if(isRedAllianceSub == null)
         {
             return Alliance.UNKNOWN;
@@ -144,6 +149,7 @@ public class NTManager {
 
     public static Pose2d getRobotPose()
     {
+        // Gets the position
         if(poseSub != null)
         {
             return poseSub.get();
@@ -175,6 +181,7 @@ public class NTManager {
 
     public static double getCurrentMatchTime()
     {
+        // What do you think
         if(matchTimeSub != null)
         {
             return matchTimeSub.get();
